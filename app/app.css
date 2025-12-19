@@ -10,3 +10,9 @@ body {
     padding-left: 10px;
     padding-bottom: 20px;
 }
+
+h1 {
+  text-align: center;
+  padding-top: 20px;
+  color: red !important;
+}

@@ -39,15 +39,23 @@ export default function Home({
 
   const {event_data} = loaderData;
 
+  // For constructing the url as data doesn't contain correct link
+  const base_url = "https://www.goodgym.org/v3/sessions/";
+  const start = "happenings/"
+  const end = "?";
+
   return (
       <div>
+          <h1>GoodGym Events</h1>
           {event_data.events.map((ev: any) => (
             <Card key={ev.id} bg="light" text="dark" className="m-4">
+              <Card.Header className="mb-2">
+                {ev.data.programme.name}
+              </Card.Header>
               <Card.Body>
-                <Card.Title>{ev.data.name}</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">{ev.data.programme.name}</Card.Subtitle>
+                <Card.Title className="mb-4">{ev.data.name}</Card.Title>
                 <Card.Text>{ev.data.description}</Card.Text>
-                <Card.Link href={ev.data.url}>Event Link</Card.Link>
+                <Card.Link href={base_url + ev.data.url.split(start)[1].split(end)[0]} target="_blank">Event Link</Card.Link>
               </Card.Body>
               <Card.Footer>{getFormattedDate(ev.data.startDate)}</Card.Footer>
             </Card>

@@ -35,6 +35,5 @@ npm run build
 
 ## Things to change
 
-- Url link is currently pointing to localhost rather than GoodGym site
 - Add Google map with locations marked on
 - Improve look
