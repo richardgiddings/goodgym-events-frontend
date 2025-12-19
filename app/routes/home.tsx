@@ -30,7 +30,7 @@ function getFormattedDate(input_date: string) {
     month = (month < 10 ? "0" : "") + month;
     day = (day < 10 ? "0" : "") + day;
 
-    return day + "-" + month + "-" + date.getFullYear() + " " + date.toLocaleTimeString("en-GB");
+    return day + "-" + month + "-" + date.getFullYear() + " " + date.toLocaleTimeString("en-GB", {hour: '2-digit', minute:'2-digit'});
 }
 
 export default function Home({
