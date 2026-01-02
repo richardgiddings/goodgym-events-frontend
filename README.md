@@ -6,6 +6,7 @@ Requires an environment variable like this point to the backend:
 VITE_APP_URL=http://127.0.0.1:8000
 
 ![Alt text](screenshot.png?raw=true "site")
+![Alt text](screenshot2.png?raw=true "site2")
 
 ## Installation
 
@@ -32,8 +33,3 @@ Create a production build:
 ```bash
 npm run build
 ```
-
-## Things to change
-
-- Add Google map with locations marked on
-- Improve look
