@@ -1,5 +1,13 @@
 import type { Route } from "./+types/home";
+import { useState } from "react";
+import {
+  APIProvider,
+  Map,
+  AdvancedMarker,
+  Pin,
+} from "@vis.gl/react-google-maps";
 
+import ListGroup from 'react-bootstrap/ListGroup';
 import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -47,9 +55,38 @@ export default function Home({
   const start = "happenings/"
   const end = "?";
 
+  // Maps
+  const position = {lat: 51.451107, lng: -2.593515}
+  const api_key = import.meta.env.VITE_MAPS_API_KEY;
+  const map_id = import.meta.env.VITE_MAP_ID
+
   return (
       <div>
           <h1>GoodGym Events</h1>
+
+          <Card bg="light" text="dark" className="m-4">
+            <APIProvider apiKey={api_key}>
+              <div style={{height: "50vh"}}>
+                <Map defaultZoom={11} center={position} mapId={map_id}>
+                  {locations.map((location: any) => (
+                    <AdvancedMarker 
+                      key={location.name}
+                      position={location.position}
+                      title={location.name}
+                      scale={2}>
+                        <Pin background={location.background}></Pin>
+                    </AdvancedMarker>
+                  ))}
+                </Map>
+              </div>
+              <ListGroup variant="flush">
+                <ListGroup.Item>Red marker is the start location of group runs.</ListGroup.Item>
+                <ListGroup.Item>Orange marker is location of a community mission.</ListGroup.Item>
+                <ListGroup.Item>Rollover marker for more details.</ListGroup.Item>
+              </ListGroup>
+            </APIProvider>
+          </Card>
+
           {events.map((ev: any) => (
             <Card key={ev.id} bg="light" text="dark" className="m-4">
               <Card.Header className="mb-2">
