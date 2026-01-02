@@ -18,7 +18,10 @@ export async function clientLoader({
   const res = await fetch(api_url+"/events/")
   const event_data = await res.json();
 
-  return {event_data};
+  const events = event_data.events;
+  const locations = event_data.locations;
+
+  return {events, locations};
 }
 
 function getFormattedDate(input_date: string) {
@@ -37,7 +40,7 @@ export default function Home({
   loaderData
 }: Route.ComponentProps) {
 
-  const {event_data} = loaderData;
+  const {events, locations} = loaderData;
 
   // For constructing the url as data doesn't contain correct link
   const base_url = "https://www.goodgym.org/v3/sessions/";
@@ -47,7 +50,7 @@ export default function Home({
   return (
       <div>
           <h1>GoodGym Events</h1>
-          {event_data.events.map((ev: any) => (
+          {events.map((ev: any) => (
             <Card key={ev.id} bg="light" text="dark" className="m-4">
               <Card.Header className="mb-2">
                 {ev.data.programme.name}
