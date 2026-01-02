@@ -10,8 +10,8 @@ Google Maps has been used to show locations of Goodgym events.
 - React package to interact with Google Maps is [here](https://visgl.github.io/react-google-maps/).
 
 For Google Maps we need the following two environment variables:
-VITE_MAPS_API_KEY - Your Google Maps API key.
-VITE_MAP_ID - Map configured on Google.
+- VITE_MAPS_API_KEY - Your Google Maps API key.
+- VITE_MAP_ID - Map configured on Google.
 
 ## Screenshots
 
