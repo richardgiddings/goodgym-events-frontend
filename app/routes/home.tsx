@@ -38,10 +38,10 @@ function getFormattedDate(input_date: string) {
     var month = date.getMonth() + 1;
     var day = date.getDate();
 
-    month = (month < 10 ? "0" : "") + month;
-    day = (day < 10 ? "0" : "") + day;
+    var month_formatted = (month < 10 ? "0" : "") + month;
+    var day_formatted = (day < 10 ? "0" : "") + day;
 
-    return day + "-" + month + "-" + date.getFullYear() + " " + date.toLocaleTimeString("en-GB", {hour: '2-digit', minute:'2-digit'});
+    return day_formatted + "-" + month_formatted + "-" + date.getFullYear() + " " + date.toLocaleTimeString("en-GB", {hour: '2-digit', minute:'2-digit'});
 }
 
 export default function Home({
