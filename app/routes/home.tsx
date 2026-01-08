@@ -74,17 +74,19 @@ export default function Home({
                       position={location.position}
                       title={location.name}
                       scale={2}>
-                        <Pin background={location.background}></Pin>
+                        <Pin background={location.background} glyphColor="black"></Pin>
                     </AdvancedMarker>
                   ))}
                 </Map>
               </div>
-              <ListGroup variant="flush">
-                <ListGroup.Item>Red marker is the start location of group runs.</ListGroup.Item>
-                <ListGroup.Item>Orange marker is location of a community mission.</ListGroup.Item>
-                <ListGroup.Item>Rollover marker for more details.</ListGroup.Item>
-              </ListGroup>
             </APIProvider>
+            <ListGroup className="map-key" horizontal>
+              <ListGroup.Item className="group-run">Group Runs</ListGroup.Item>
+              <ListGroup.Item className="community-mission">Community Mission</ListGroup.Item>
+              <ListGroup.Item className="party">Party/Eats</ListGroup.Item>
+              <ListGroup.Item className="race">Race</ListGroup.Item>
+              <ListGroup.Item className="training-session">Training Session</ListGroup.Item>
+            </ListGroup>
           </Card>
 
           {events.map((ev: any) => (
