@@ -100,7 +100,7 @@ export default function Home({
                 </Map>
               </div>
             </APIProvider>
-            <ListGroup className="mb-4" variant="flush">
+            <ListGroup className="mb-4 pt-2" variant="flush">
               <ListGroup.Item className="m-1 group-run">Group Runs</ListGroup.Item>
               <ListGroup.Item className="m-1 community-mission">Community Mission</ListGroup.Item>
               <ListGroup.Item className="m-1 party">Party/Eats</ListGroup.Item>
