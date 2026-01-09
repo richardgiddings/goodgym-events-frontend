@@ -80,12 +80,12 @@ export default function Home({
                 </Map>
               </div>
             </APIProvider>
-            <ListGroup className="map-key" horizontal>
-              <ListGroup.Item className="group-run">Group Runs</ListGroup.Item>
-              <ListGroup.Item className="ms-1 community-mission">Community Mission</ListGroup.Item>
-              <ListGroup.Item className="ms-1 party">Party/Eats</ListGroup.Item>
-              <ListGroup.Item className="ms-1 race">Race</ListGroup.Item>
-              <ListGroup.Item className="ms-1 training-session">Training Session</ListGroup.Item>
+            <ListGroup className="mb-4" variant="flush">
+              <ListGroup.Item className="m-1 group-run">Group Runs</ListGroup.Item>
+              <ListGroup.Item className="m-1 community-mission">Community Mission</ListGroup.Item>
+              <ListGroup.Item className="m-1 party">Party/Eats</ListGroup.Item>
+              <ListGroup.Item className="m-1 race">Race</ListGroup.Item>
+              <ListGroup.Item className="m-1 training-session">Training Session</ListGroup.Item>
             </ListGroup>
           </Card>
 
