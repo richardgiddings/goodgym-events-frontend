@@ -102,6 +102,7 @@ export default function Home({
               <Card.Footer>{getFormattedDate(ev.data.startDate)}</Card.Footer>
             </Card>
           ))}
+          <p className="m-4">Created using <a href="https://www.openactive.io/">OpenActive</a> data from <a href="https://github.com/good-gym/opendata">Goodgym</a> under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution Licence</a>.</p>
       </div>
   );
 }
