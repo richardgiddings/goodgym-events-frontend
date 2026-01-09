@@ -5,6 +5,7 @@ import {
   Map,
   AdvancedMarker,
   Pin,
+  InfoWindow,
 } from "@vis.gl/react-google-maps";
 
 import ListGroup from 'react-bootstrap/ListGroup';
@@ -59,6 +60,19 @@ export default function Home({
   const position = {lat: 51.451107, lng: -2.593515}
   const api_key = import.meta.env.VITE_MAPS_API_KEY;
   const map_id = import.meta.env.VITE_MAP_ID
+  const [open, setOpen] = useState(Array(locations.length).fill(false));
+
+  function handleClick(index: any, value: any) {
+    const newValues = locations.map((c: any, i: any) => {
+      if (i === index) {
+        return value;
+      } else {
+        // The rest haven't changed
+        return c;
+      }
+    });
+    setOpen(newValues);
+  }
 
   return (
       <div>
@@ -73,8 +87,14 @@ export default function Home({
                       key={location.name}
                       position={location.position}
                       title={location.name}
-                      scale={2}>
+                      scale={2}
+                      onClick={() => handleClick(location.number, true)}>
                         <Pin background={location.background} glyphColor="black"></Pin>
+                        {open[location.number] === true && (
+                          <InfoWindow position={location.position} onCloseClick={() => handleClick(location.number, false)}>
+                            <p>{location.name}</p>
+                          </InfoWindow>
+                        )}
                     </AdvancedMarker>
                   ))}
                 </Map>
