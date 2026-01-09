@@ -91,7 +91,7 @@ export default function Home({
 
           {events.map((ev: any) => (
             <Card key={ev.id} bg="light" text="dark" className="m-4">
-              <Card.Header className="mb-2">
+              <Card.Header className={ev.data.programme.name.replace(' ', '-').toLowerCase()}>
                 {ev.data.programme.name}
               </Card.Header>
               <Card.Body>
