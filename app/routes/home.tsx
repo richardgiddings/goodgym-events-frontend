@@ -64,7 +64,7 @@ export default function Home({
       <div>
           <h1>GoodGym Events</h1>
 
-          <Card bg="light" text="dark" className="m-4">
+          <Card bg="light" text="dark" className="mt-4">
             <APIProvider apiKey={api_key}>
               <div style={{height: "50vh"}}>
                 <Map defaultZoom={11} defaultCenter={position} mapId={map_id}>
@@ -90,7 +90,7 @@ export default function Home({
           </Card>
 
           {events.map((ev: any) => (
-            <Card key={ev.id} bg="light" text="dark" className="m-4">
+            <Card key={ev.id} bg="light" text="dark" className="mt-4">
               <Card.Header className={ev.data.programme.name.replace(' ', '-').toLowerCase()}>
                 {ev.data.programme.name}
               </Card.Header>
@@ -102,7 +102,7 @@ export default function Home({
               <Card.Footer>{getFormattedDate(ev.data.startDate)}</Card.Footer>
             </Card>
           ))}
-          <p className="m-4">Created using <a href="https://www.openactive.io/">OpenActive</a> data from <a href="https://github.com/good-gym/opendata">Goodgym</a> under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution Licence</a>.</p>
+          <p className="mt-4">Created using <a href="https://www.openactive.io/">OpenActive</a> data from <a href="https://github.com/good-gym/opendata">Goodgym</a> under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution Licence</a>.</p>
       </div>
   );
 }
