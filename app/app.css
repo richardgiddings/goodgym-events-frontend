@@ -36,3 +36,7 @@ h1 {
   background-color: #88c77b !important;
   font-weight: bold;
 }
+
+.gm-style-moc {
+  height: unset !important;
+}
