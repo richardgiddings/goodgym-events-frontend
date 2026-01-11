@@ -88,7 +88,7 @@ export default function Home({
                       position={location.position}
                       title={location.name}
                       onClick={() => handleClick(location.number, true)}>
-                        <Pin background={location.background} glyphColor="black" scale={2}></Pin>
+                        <Pin background={location.background} glyphColor="black" scale={1.2}></Pin>
                         {open[location.number] === true && (
                           <InfoWindow position={location.position} onCloseClick={() => handleClick(location.number, false)}>
                             <p>{location.name}</p>
