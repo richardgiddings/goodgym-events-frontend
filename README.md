@@ -46,7 +46,3 @@ Create a production build:
 ```bash
 npm run build
 ```
-
-## Changes Needed
-
-- Mouseover title doesn't work on phone so need an alternative... click?
