@@ -81,7 +81,7 @@ export default function Home({
           <Card bg="light" text="dark" className="mt-4">
             <APIProvider apiKey={api_key}>
               <div style={{height: "50vh"}}>
-                <Map defaultZoom={11} defaultCenter={position} mapId={map_id}>
+                <Map defaultZoom={11} defaultCenter={position} mapId={map_id} disableDefaultUI={true}>
                   {locations.map((location: any) => (
                     <AdvancedMarker 
                       key={location.name}
