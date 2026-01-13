@@ -12,22 +12,26 @@ body {
 }
 
 h1 {
-  text-align: center;
-  padding-top: 20px;
+	text-align: center;
+	padding-top: 20px;
 }
 
 .group-run {
-  background-color: #e11018 !important;
+	background-color: #e11018 !important;
 }
 .community-mission {
-  background-color: #d66c20 !important;
+	background-color: #d66c20 !important;
 }
 .party {
-  background-color: #b176db !important;
+	background-color: #b176db !important;
 }
 .race {
-  background-color: #639be6 !important;
+	background-color: #639be6 !important;
 }
 .training-session {
-  background-color: #88c77b !important;
+	background-color: #88c77b !important;
+}
+
+.line-break {
+	white-space: pre-line;
 }
