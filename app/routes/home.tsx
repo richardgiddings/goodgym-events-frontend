@@ -140,7 +140,9 @@ export default function Home({
 				<Card.Footer>{getFormattedDate(ev.data.startDate)}</Card.Footer>
 				</Card>
 			))}
-			<p className="mt-4">Created using <a href="https://www.openactive.io/">OpenActive</a> data from <a href="https://github.com/good-gym/opendata">GoodGym</a> under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution Licence</a>.</p>
+			<p className="mt-4">
+				Created using <a href="https://www.openactive.io/">OpenActive</a> data from <a href="https://github.com/good-gym/opendata">GoodGym</a> under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution Licence</a>. The front-end code for this site can be found <a href="https://github.com/richardgiddings/goodgym-events-frontend">here</a> and the API can be found <a href="https://github.com/richardgiddings/goodgym-events-api">here</a>.
+			</p>
 		</div>
 	);
 }
