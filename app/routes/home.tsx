@@ -8,6 +8,7 @@ import {
 	InfoWindow,
 } from "@vis.gl/react-google-maps";
 
+import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -62,6 +63,12 @@ export default function Home({
 	const map_id = import.meta.env.VITE_MAP_ID
 	const [open, setOpen] = useState(Array(locations.length).fill(false));
 
+	const [filter, setFilter] = useState("");
+	const filteredLocations = 
+		filter === ""
+			? locations
+			: locations.filter((location: any) => location.event_type.replace(' ', '-').toLowerCase() === filter)
+
 	function handleClick(index: any, value: any) {
 		const newValues = locations.map((c: any, i: any) => {
 		if (i === index) {
@@ -80,35 +87,44 @@ export default function Home({
 
 			<Card bg="light" text="dark" className="mt-4 mb-5">
 				<Card.Body className="p-2">
-				<APIProvider apiKey={api_key}>
-					<div style={{height: "50vh"}}>
-						<Map defaultZoom={11} defaultCenter={position} mapId={map_id} disableDefaultUI={true}>
-							{locations.map((location: any) => (
-							<AdvancedMarker 
-								key={location.name}
-								position={location.position}
-								title={location.name}
-								onClick={() => handleClick(location.number, true)}>
-								<Pin background={location.background} glyphColor="black" scale={1.3}></Pin>
-								{open[location.number] === true && (
-									<InfoWindow position={location.position} onCloseClick={() => handleClick(location.number, false)}>
-									<p className="line-break">{location.name}</p>
-									</InfoWindow>
-								)}
-							</AdvancedMarker>
-							))}
-						</Map>
-					</div>
-				</APIProvider>
-				<ListGroup className="pt-2 fw-bold" variant="flush">
-					<ListGroup.Item className="mt-1 group-run">Group Runs</ListGroup.Item>
-					<ListGroup.Item className="mt-1 community-mission">Community Mission</ListGroup.Item>
-					<ListGroup.Item className="mt-1 party">Party/Eats</ListGroup.Item>
-					<ListGroup.Item className="mt-1 race">Race</ListGroup.Item>
-					<ListGroup.Item className="mt-1 training-session">Training Session</ListGroup.Item>
-				</ListGroup>
+					<APIProvider apiKey={api_key}>
+						<div style={{height: "50vh"}}>
+							<Map defaultZoom={11} defaultCenter={position} mapId={map_id} disableDefaultUI={true}>
+								{filteredLocations.map((location: any) => (
+								<AdvancedMarker 
+									key={location.name}
+									position={location.position}
+									title={location.name}
+									onClick={() => handleClick(location.number, true)}>
+									<Pin background={location.background} glyphColor="black" scale={1.3}></Pin>
+									{open[location.number] === true && (
+										<InfoWindow position={location.position} onCloseClick={() => handleClick(location.number, false)}>
+										<p className="line-break">{location.name}</p>
+										</InfoWindow>
+									)}
+								</AdvancedMarker>
+								))}
+							</Map>
+						</div>
+					</APIProvider>
+					<ListGroup className="pt-2 fw-bold" variant="flush">
+						<ListGroup.Item className="mt-1 group-run" onClick={() => setFilter('group-run')}>Group Runs</ListGroup.Item>
+						<ListGroup.Item className="mt-1 community-mission" onClick={() => setFilter('community-mission')}>Community Mission</ListGroup.Item>
+						<ListGroup.Item className="mt-1 party" onClick={() => setFilter('party')}>Party/Eats</ListGroup.Item>
+						<ListGroup.Item className="mt-1 race" onClick={() => setFilter('race')}>Race</ListGroup.Item>
+						<ListGroup.Item className="mt-1 training-session" onClick={() => setFilter('training-session')}>Training Session</ListGroup.Item>
+					</ListGroup>
 				</Card.Body>
-				<Card.Footer>Rollover or select a pin to see more details.</Card.Footer>
+				<Card.Footer>
+					What you can do with the map:
+					<ul>
+						<li>Zoom in and out and move the map.</li>
+						<li>Rollover or select a pin to see the event name(s).</li>
+						<li>Select an event type above to show only that type on the map.</li> 
+						<li>Click <Button className="p-0" variant="link" onClick={() => setFilter('')}>here</Button> to reset the map.</li>
+					</ul>
+					For a list of all the events and more detail see the list below.
+				</Card.Footer>
 			</Card>
 
 			{events.map((ev: any) => (
