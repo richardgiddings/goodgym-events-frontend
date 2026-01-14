@@ -8,8 +8,10 @@ import {
 	InfoWindow,
 } from "@vis.gl/react-google-maps";
 
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
-import ListGroup from 'react-bootstrap/ListGroup';
 import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -106,14 +108,16 @@ export default function Home({
 								))}
 							</Map>
 						</div>
-					</APIProvider>
-					<ListGroup className="pt-2 fw-bold" variant="flush">
-						<ListGroup.Item className="mt-1 group-run" onClick={() => setFilter('group-run')}>Group Runs</ListGroup.Item>
-						<ListGroup.Item className="mt-1 community-mission" onClick={() => setFilter('community-mission')}>Community Mission</ListGroup.Item>
-						<ListGroup.Item className="mt-1 party" onClick={() => setFilter('party')}>Party/Eats</ListGroup.Item>
-						<ListGroup.Item className="mt-1 race" onClick={() => setFilter('race')}>Race</ListGroup.Item>
-						<ListGroup.Item className="mt-1 training-session" onClick={() => setFilter('training-session')}>Training Session</ListGroup.Item>
-					</ListGroup>
+					</APIProvider>	
+					<Container className="pt-2 fw-bold" fluid>
+						<Row>
+							<Col lg className="p-2 mt-1 group-run" onClick={() => setFilter('group-run')}>Group Runs</Col>
+							<Col lg className="p-2 mt-1 community-mission" onClick={() => setFilter('community-mission')}>Community Mission</Col>
+							<Col lg className="p-2 mt-1 party" onClick={() => setFilter('party')}>Party/Eats</Col>
+							<Col lg className="p-2 mt-1 race" onClick={() => setFilter('race')}>Race</Col>
+							<Col lg className="p-2 mt-1 training-session" onClick={() => setFilter('training-session')}>Training Session</Col>							
+						</Row>
+					</Container>
 				</Card.Body>
 				<Card.Footer>
 					What you can do with the map:
@@ -128,7 +132,7 @@ export default function Home({
 			</Card>
 
 			{events.map((ev: any) => (
-				<Card key={ev.id} bg="light" text="dark" className="mt-4">
+			<Card key={ev.id} bg="light" text="dark" className="mt-4">
 				<Card.Header className={ev.data.programme.name.replace(' ', '-').toLowerCase()+" fw-bold"}>
 					{ev.data.programme.name}
 				</Card.Header>
@@ -138,7 +142,7 @@ export default function Home({
 					<Card.Link href={base_url + ev.data.url.split(start)[1].split(end)[0]} target="_blank">Event Link</Card.Link>
 				</Card.Body>
 				<Card.Footer>{getFormattedDate(ev.data.startDate)}</Card.Footer>
-				</Card>
+			</Card>
 			))}
 			<p className="mt-4">
 				Created using <a href="https://www.openactive.io/">OpenActive</a> data from <a href="https://github.com/good-gym/opendata">GoodGym</a> under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution Licence</a>. The front-end code for this site can be found <a href="https://github.com/richardgiddings/goodgym-events-frontend">here</a> and the API can be found <a href="https://github.com/richardgiddings/goodgym-events-api">here</a>.
