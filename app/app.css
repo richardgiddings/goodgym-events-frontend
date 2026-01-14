@@ -23,17 +23,41 @@ h1 {
 .group-run {
 	background-color: #e11018 !important;
 }
+.group-run:hover {
+  background-color: #f1363d !important;
+  cursor: pointer;
+}
+
 .community-mission {
 	background-color: #d66c20 !important;
 }
+.community-mission:hover {
+  background-color: #e48847 !important;
+  cursor: pointer;
+}
+
 .party {
 	background-color: #b176db !important;
 }
+.party:hover {
+	background-color: #c191e2 !important;
+  cursor: pointer;
+}
+
 .race {
 	background-color: #639be6 !important;
 }
+.race:hover {
+	background-color: #82afeb !important;
+  cursor: pointer;
+}
+
 .training-session {
 	background-color: #88c77b !important;
+}
+.training-session:hover {
+	background-color: #a0d295 !important;
+  cursor: pointer;
 }
 
 .line-break {
