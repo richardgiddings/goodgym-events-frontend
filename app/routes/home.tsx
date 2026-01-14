@@ -125,7 +125,7 @@ export default function Home({
 						<li>Zoom in and out and move the map.</li>
 						<li>Rollover or select a pin to see the event name(s).</li>
 						<li>Select an event type above to show only that type on the map.</li> 
-						<li>Click <Button className="p-0" variant="link" onClick={() => setFilter('')}>here</Button> to reset the map.</li>
+						<li>Click <Button className="p-0 links" variant="link" onClick={() => setFilter('')}>here</Button> to reset the map.</li>
 					</ul>
 					For a list of all the events and more detail see the list below.
 				</Card.Footer>
@@ -139,13 +139,13 @@ export default function Home({
 				<Card.Body>
 					<Card.Title className="mb-4">{ev.data.name}</Card.Title>
 					<Card.Text>{ev.data.description}</Card.Text>
-					<Card.Link href={base_url + ev.data.url.split(start)[1].split(end)[0]} target="_blank">Event Link</Card.Link>
+					<Card.Link href={base_url + ev.data.url.split(start)[1].split(end)[0]} className="links" target="_blank">Event Link</Card.Link>
 				</Card.Body>
 				<Card.Footer>{getFormattedDate(ev.data.startDate)}</Card.Footer>
 			</Card>
 			))}
 			<p className="mt-4">
-				Created using <a href="https://www.openactive.io/">OpenActive</a> data from <a href="https://github.com/good-gym/opendata">GoodGym</a> under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution Licence</a>. The front-end code for this site can be found <a href="https://github.com/richardgiddings/goodgym-events-frontend">here</a> and the API can be found <a href="https://github.com/richardgiddings/goodgym-events-api">here</a>.
+				Created using <a href="https://www.openactive.io/" className="links">OpenActive</a> data from <a href="https://github.com/good-gym/opendata" className="links">GoodGym</a> under the <a href="https://creativecommons.org/licenses/by/4.0/" className="links">Creative Commons Attribution Licence</a>. The front-end code for this site can be found <a href="https://github.com/richardgiddings/goodgym-events-frontend" className="links">here</a> and the API can be found <a href="https://github.com/richardgiddings/goodgym-events-api" className="links">here</a>.
 			</p>
 		</div>
 	);

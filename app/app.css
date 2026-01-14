@@ -16,6 +16,10 @@ h1 {
 	padding-top: 20px;
 }
 
+.links {
+  text-decoration: none !important;
+}
+
 .group-run {
 	background-color: #e11018 !important;
 }
