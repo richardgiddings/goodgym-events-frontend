@@ -92,7 +92,7 @@ export default function Home({
 		<div>
 			<h1>GoodGym Events</h1>
 
-			<Card bg="light" text="dark" className="mt-4 mb-5">
+			<Card bg="light" text="dark" className="mt-4 mb-4">
 				<Card.Body className="p-2">
 					<APIProvider apiKey={api_key}>
 						<div style={{height: "50vh"}}>
@@ -135,6 +135,8 @@ export default function Home({
 					For more details on events see the list below.
 				</Card.Footer>
 			</Card>
+
+			<hr/>
 
 			{filteredEvents.map((ev: any) => (
 			<Card key={ev.id} bg="light" text="dark" className="mt-4">
