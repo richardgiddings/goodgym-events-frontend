@@ -90,7 +90,7 @@ export default function Home({
 
 	return (
 		<div>
-			<h1>GoodGym Events</h1>
+			<h1 className="barlow-condensed-bold">GoodGym Events</h1>
 
 			<Card bg="light" text="dark" className="mt-4 mb-4">
 				<Card.Body className="p-2">
@@ -114,7 +114,7 @@ export default function Home({
 							</Map>
 						</div>
 					</APIProvider>	
-					<Container className="pt-2 fw-bold" fluid>
+					<Container className="pt-2 barlow-condensed-semibold" fluid>
 						<Row>
 							<Col lg className="p-2 mt-1 group-run" onClick={() => setFilter('group-run')}>Group Runs</Col>
 							<Col lg className="p-2 mt-1 community-mission" onClick={() => setFilter('community-mission')}>Community Mission</Col>
@@ -140,7 +140,7 @@ export default function Home({
 
 			{filteredEvents.map((ev: any) => (
 			<Card key={ev.id} bg="light" text="dark" className="mt-4">
-				<Card.Header className={ev.data.programme.name.replace(' ', '-').toLowerCase()+" fw-bold"}>
+				<Card.Header className={ev.data.programme.name.replace(' ', '-').toLowerCase()+" barlow-condensed-semibold"}>
 					{ev.data.programme.name}
 				</Card.Header>
 				<Card.Body>
