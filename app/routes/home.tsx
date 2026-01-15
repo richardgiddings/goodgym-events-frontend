@@ -65,12 +65,6 @@ export default function Home({
 	const map_id = import.meta.env.VITE_MAP_ID
 	const [open, setOpen] = useState(Array(locations.length).fill(false));
 
-	const [filter, setFilter] = useState("");
-	const filteredLocations = 
-		filter === ""
-			? locations
-			: locations.filter((location: any) => location.event_type.replace(' ', '-').toLowerCase() === filter)
-
 	function handleClick(index: any, value: any) {
 		const newValues = locations.map((c: any, i: any) => {
 		if (i === index) {
@@ -82,6 +76,17 @@ export default function Home({
 		});
 		setOpen(newValues);
 	}
+
+	// Filtering 
+	const [filter, setFilter] = useState("");
+	const filteredLocations = 
+		filter === ""
+			? locations
+			: locations.filter((location: any) => location.event_type.replace(' ', '-').toLowerCase() === filter)
+	const filteredEvents =
+		filter === ""
+			? events
+			: events.filter((event: any) => event.data.programme.name.replace(' ', '-').toLowerCase() === filter)
 
 	return (
 		<div>
@@ -120,18 +125,18 @@ export default function Home({
 					</Container>
 				</Card.Body>
 				<Card.Footer>
-					What you can do with the map:
+					What you can do:
 					<ul>
 						<li>Zoom in and out and move the map.</li>
 						<li>Rollover or select a pin to see the event name(s).</li>
-						<li>Select an event type above to show only that type on the map.</li> 
-						<li>Click <Button className="p-0 links" variant="link" onClick={() => setFilter('')}>here</Button> to reset the map.</li>
+						<li>Select an event type above to show only that type of event.</li> 
+						<li>Click <Button className="p-0 links" variant="link" onClick={() => setFilter('')}>here</Button> to show all events again.</li>
 					</ul>
-					For a list of all the events and more detail see the list below.
+					For more details on events see the list below.
 				</Card.Footer>
 			</Card>
 
-			{events.map((ev: any) => (
+			{filteredEvents.map((ev: any) => (
 			<Card key={ev.id} bg="light" text="dark" className="mt-4">
 				<Card.Header className={ev.data.programme.name.replace(' ', '-').toLowerCase()+" fw-bold"}>
 					{ev.data.programme.name}
