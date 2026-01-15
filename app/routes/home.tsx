@@ -37,11 +37,11 @@ export async function clientLoader({
 }
 
 function getFormattedDate(input_date: string) {
-	
+
     const date = new Date(input_date);
 
-	var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
-	var formatted_date = date.toLocaleDateString("en-GB", options);
+	const timeFormat: Intl.DateTimeFormatOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
+	var formatted_date = date.toLocaleDateString("en-GB", timeFormat);
 
     return formatted_date;
 }
