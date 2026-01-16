@@ -26,6 +26,8 @@ export async function clientLoader({
   	params,
 }: Route.ClientLoaderArgs) {
 	const api_url = import.meta.env.VITE_APP_URL;
+	const center_longitude = Number(import.meta.env.VITE_MAP_CENTER_LONGITUDE);
+	const center_latitude = Number(import.meta.env.VITE_MAP_CENTER_LATITUDE);
 
 	const res = await fetch(api_url+"/events/")
 	const event_data = await res.json();
@@ -33,7 +35,7 @@ export async function clientLoader({
 	const events = event_data.events;
 	const locations = event_data.locations;
 
-	return {events, locations};
+	return {events, locations, center_longitude, center_latitude};
 }
 
 function getFormattedDate(input_date: string) {
@@ -50,7 +52,7 @@ export default function Home({
   	loaderData
 }: Route.ComponentProps) {
 
-	const {events, locations} = loaderData;
+	const {events, locations, center_longitude, center_latitude} = loaderData;
 
 	// For constructing the url as data doesn't contain correct link
 	const base_url = "https://www.goodgym.org/v3/sessions/";
@@ -58,7 +60,7 @@ export default function Home({
 	const end = "?";
 
 	// Maps
-	const position = {lat: 51.451107, lng: -2.593515}
+	const position = {lat: center_latitude, lng: center_longitude}
 	const api_key = import.meta.env.VITE_MAPS_API_KEY;
 	const map_id = import.meta.env.VITE_MAP_ID
 	const [open, setOpen] = useState(Array(locations.length).fill(false));
