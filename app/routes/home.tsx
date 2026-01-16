@@ -138,7 +138,7 @@ export default function Home({
 
 			{filteredEvents.map((ev: any) => (
 			<Card key={ev.id} bg="light" text="dark" className="mt-4">
-				<Card.Header className={ev.data.programme.name.replace(' ', '-').toLowerCase()+" barlow-condensed-semibold"}>
+				<Card.Header className={ev.data.programme.name.replace(' ', '-').toLowerCase()+"-card barlow-condensed-semibold"}>
 					{ev.data.programme.name}
 				</Card.Header>
 				<Card.Body>

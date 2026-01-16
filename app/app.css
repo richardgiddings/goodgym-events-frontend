@@ -25,7 +25,7 @@ h1 {
   text-decoration: none !important;
 }
 
-.group-run {
+.group-run, .group-run-card {
 	background-color: #e11018 !important;
 }
 .group-run:hover {
@@ -33,7 +33,7 @@ h1 {
   cursor: pointer;
 }
 
-.community-mission {
+.community-mission, .community-mission-card {
 	background-color: #d66c20 !important;
 }
 .community-mission:hover {
@@ -41,7 +41,7 @@ h1 {
   cursor: pointer;
 }
 
-.party {
+.party, .party-card {
 	background-color: #b176db !important;
 }
 .party:hover {
@@ -49,7 +49,7 @@ h1 {
   cursor: pointer;
 }
 
-.race {
+.race, .race-card {
 	background-color: #639be6 !important;
 }
 .race:hover {
@@ -57,7 +57,7 @@ h1 {
   cursor: pointer;
 }
 
-.training-session {
+.training-session, .training-session-card {
 	background-color: #88c77b !important;
 }
 .training-session:hover {
