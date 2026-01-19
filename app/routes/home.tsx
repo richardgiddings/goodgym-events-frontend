@@ -144,7 +144,8 @@ export default function Home({
 					{ev.data.programme.name}
 				</Card.Header>
 				<Card.Body>
-					<Card.Title className="mb-4">{ev.data.name}</Card.Title>
+					<Card.Title className="mb-2">{ev.data.name}</Card.Title>
+					<Card.Subtitle className="mb-4 text-muted">{ev.data.disambiguatingDescription}</Card.Subtitle>
 					<Card.Text>{ev.data.description}</Card.Text>
 					<Card.Link href={base_url + ev.data.url.split(start)[1].split(end)[0]} className="links" target="_blank">Event Link</Card.Link>
 				</Card.Body>
