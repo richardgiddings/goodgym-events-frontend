@@ -14,7 +14,7 @@ body {
 h1 {
 	text-align: center;
 	padding-top: 20px;
-  font-size: 5rem !important;
+  font-size: 5vw !important;
 }
 
 .card-header, .card-body, .card-footer {
