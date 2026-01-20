@@ -17,6 +17,10 @@ h1 {
   font-size: 7vw !important;
 }
 
+.card-title {
+  font-size: 22px !important;
+}
+
 .card-header, .card-body, .card-footer {
   font-size: 18px;
 }
