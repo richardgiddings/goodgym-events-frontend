@@ -146,7 +146,7 @@ export default function Home({
 				<Card.Body>
 					<Card.Title className="mb-2">{ev.data.name}</Card.Title>
 					<Card.Subtitle className="mb-4 text-muted">{ev.data.disambiguatingDescription}</Card.Subtitle>
-					<Card.Text>{ev.data.description}</Card.Text>
+					<Card.Text dangerouslySetInnerHTML={{__html: ev.data["beta:formattedDescription"].replaceAll(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a href="$2">$1</a>')}}></Card.Text>
 					<Card.Link href={base_url + ev.data.url.split(start)[1].split(end)[0]} className="links" target="_blank">Event Link</Card.Link>
 				</Card.Body>
 				<Card.Footer>{getFormattedDate(ev.data.startDate)}</Card.Footer>
