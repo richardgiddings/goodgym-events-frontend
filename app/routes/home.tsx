@@ -36,6 +36,8 @@ export async function clientLoader({
 	const events = event_data.events;
 	const locations = event_data.locations;
 
+	console.log(events);
+
 	return {events, locations, center_longitude, center_latitude};
 }
 
@@ -66,14 +68,14 @@ export default function Home({
 	const map_id = import.meta.env.VITE_MAP_ID
 	const [open, setOpen] = useState(Array(locations.length).fill(false));
 
-	function handleClick(index: any, value: any) {
-		const newValues = locations.map((c: any, i: any) => {
-		if (i === index) {
-			return value;
-		} else {
-			// The rest haven't changed
-			return c;
-		}
+	function handleClick(index_clicked: number, is_clicked: boolean) {
+		const newValues = locations.map((c: any, current_index: number) => {
+			if (current_index === index_clicked) {
+				return is_clicked;
+			} else {
+				// The rest haven't changed
+				return c;
+			}
 		});
 		setOpen(newValues);
 	}
