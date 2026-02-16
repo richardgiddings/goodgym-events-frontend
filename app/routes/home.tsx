@@ -93,9 +93,10 @@ export default function Home({
 
 	return (
 		<div>
-			<h1 className="barlow-condensed-bold">GoodGym Events</h1>
-
-			<Card bg="light" text="dark" className="mt-4 mb-4">
+			<Card text="dark" className="mt-4 mb-4">
+				<Card.Header className="barlow-condensed-regular header">
+					GoodGym Events
+				</Card.Header>
 				<Card.Body className="p-2">
 					<APIProvider apiKey={api_key}>
 						<div style={{height: "50vh"}}>
