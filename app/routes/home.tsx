@@ -93,7 +93,7 @@ export default function Home({
 
 	return (
 		<div>
-			<Card text="dark" className="mt-4 mb-4">
+			<Card text="dark" className="mb-4">
 				<Card.Header className="barlow-condensed-regular header">
 					GoodGym Events
 				</Card.Header>
