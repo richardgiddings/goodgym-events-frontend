@@ -14,7 +14,7 @@ body {
 .header {
   display: flex;
   justify-content: center;
-  font-size: 4vw !important;
+  font-size: 6vw !important;
   background-color: #f24a50 !important;
 }
 
