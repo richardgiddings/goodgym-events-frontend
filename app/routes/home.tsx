@@ -36,8 +36,6 @@ export async function clientLoader({
 	const events = event_data.events;
 	const locations = event_data.locations;
 
-	console.log(events);
-
 	return {events, locations, center_longitude, center_latitude};
 }
 
@@ -151,7 +149,7 @@ export default function Home({
 					<Card.Title className="mb-2">{ev.data.name}</Card.Title>
 					<Card.Subtitle className="mb-4 text-muted">{ev.data.disambiguatingDescription}</Card.Subtitle>
 					<MarkdownView markdown={ev.data["beta:formattedDescription"]}/>
-					<Card.Link href={base_url + ev.data.url.split(start)[1].split(end)[0]} className="links" target="_blank">Event Link</Card.Link>
+					<Card.Link href={base_url + ev.data.url.substring(ev.data.url.lastIndexOf('/') + 1).split(end)[0]} className="links" target="_blank">Event Link</Card.Link>
 				</Card.Body>
 				<Card.Footer>{getFormattedDate(ev.data.startDate)}</Card.Footer>
 			</Card>
