@@ -26,11 +26,11 @@ export function meta({ }: Route.MetaArgs) {
 export async function clientLoader({
 	params,
 }: Route.ClientLoaderArgs) {
-	const api_url = import.meta.env.VITE_APP_URL;
-	const center_longitude = Number(import.meta.env.VITE_MAP_CENTER_LONGITUDE);
-	const center_latitude = Number(import.meta.env.VITE_MAP_CENTER_LATITUDE);
+	const api_url: string = import.meta.env.VITE_APP_URL;
+	const center_longitude: number = Number(import.meta.env.VITE_MAP_CENTER_LONGITUDE);
+	const center_latitude: number = Number(import.meta.env.VITE_MAP_CENTER_LATITUDE);
 
-	const res = await fetch(api_url + "/events/")
+	const res: Response = await fetch(api_url + "/events/")
 	const event_data = await res.json();
 
 	const events = event_data.events;
@@ -44,7 +44,7 @@ function getFormattedDate(input_date: string) {
 	const date = new Date(input_date);
 
 	const timeFormat: Intl.DateTimeFormatOptions = { weekday: 'long', year: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit', hour12: false, day: 'numeric' };
-	var formatted_date = date.toLocaleDateString("en-GB", timeFormat);
+	let formatted_date: string = date.toLocaleDateString("en-GB", timeFormat);
 
 	return formatted_date;
 }
@@ -56,15 +56,14 @@ export default function Home({
 	const { events, locations, center_longitude, center_latitude } = loaderData;
 
 	// For constructing the url as data doesn't contain correct link
-	const base_url = "https://www.goodgym.org/v3/sessions/";
-	const start = "happenings/"
-	const end = "?";
+	const base_url: string = "https://www.goodgym.org/v3/sessions/";
+	const end: string = "?";
 
 	// Maps
 	const position = { lat: center_latitude, lng: center_longitude }
-	const api_key = import.meta.env.VITE_MAPS_API_KEY;
-	const map_id = import.meta.env.VITE_MAP_ID
-	const [open, setOpen] = useState(Array(locations.length).fill(false));
+	const api_key: string = import.meta.env.VITE_MAPS_API_KEY;
+	const map_id: string = import.meta.env.VITE_MAP_ID
+	const [open, setOpen] = useState<boolean[]>(Array(locations.length).fill(false));
 
 	function handleClick(index_clicked: number, is_clicked: boolean) {
 		const newValues = locations.map((c: any, current_index: number) => {
@@ -79,7 +78,7 @@ export default function Home({
 	}
 
 	// Filtering 
-	const [filter, setFilter] = useState("");
+	const [filter, setFilter] = useState<string>("");
 	const filteredLocations =
 		filter === ""
 			? locations
