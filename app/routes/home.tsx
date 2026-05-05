@@ -85,7 +85,7 @@ export default function Home({
 				<Card.Body className="p-2">
 					<APIProvider apiKey={api_key}>
 						<div style={{ height: "50vh" }}>
-							<Map defaultZoom={11} defaultCenter={position} mapId={map_id} disableDefaultUI={true}>
+							<Map defaultZoom={10} defaultCenter={position} mapId={map_id} disableDefaultUI={true}>
 								{filteredLocations.map((location: any) => (
 									<AdvancedMarker
 										key={location.name}
